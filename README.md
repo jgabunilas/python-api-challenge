@@ -40,6 +40,7 @@ In the first part of this analysis, weather data retrieved from the OpenWeather 
 9. Matplotlib is used to construct scatter plots displaying the relationship between latitude and four properties of the weather: temperature, humidity, wind speed, and cloudiness. ![Temp vs. latitude](/WeatherPy/Fig1_Lat_v_Temp.png)
 
 10. To further quantify these relationships, the `linregress` function is imported from `scipy.stats` to perform linear regression analysis on the data. Regression lines and equations are added to the plots using Matplotlib. For these analyses, the data is divided into latitudinal coordinates that are within the Northern or Southern hemispheres.
+
 ![Temp vs. latitude](/WeatherPy/Fig5_NH_Lat_v_Temp.png)
 ![Temp vs. latitude](/WeatherPy/Fig6_SH_Lat_v_Temp.png)
 
@@ -49,9 +50,10 @@ Perhaps more interesting than the actual weather information are the actual deci
 1. VacationPy begins by using Pandas to read in the CSV file containing cities and weather information from Part I and load the data into a dataframe (`cities_df`).
 
 2. A humidity heatmap is generated using the `gmaps` library. The latitude and longitude coordinates as well as the humidity data for the cities in the dataframe are passed to the `heatmap_layer` function to create heatmap visualizing the humidity data for each city.
+
 ![humidity heatmap](/images/humidity_heatmap.PNG) 
 
-3. The `cities_df` dataframe is filtered into a new dataframe called `ideal_weather` using Pandas to filter the cities by the weather preferences. For this exercise the following conditions were applied:
+4. The `cities_df` dataframe is filtered into a new dataframe called `ideal_weather` using Pandas to filter the cities by the weather preferences. For this exercise the following conditions were applied:
 - Maximum temperature of less than 68 def F
 - Wind speed of less than 8 mph
 - Cloudiness of less than 20%

@@ -37,9 +37,11 @@ In the first part of this analysis, weather data retrieved from the OpenWeather 
 
 8. The data is exported into a CSV file for use in Part II
 
-9. Matplotlib is used to construct scatter plots displaying the relationship between latitude and four properties of the weather: temperature, humidity, wind speed, and cloudiness. ![Temp vs. latitude](/WeatherPy/Fig1_Lat_v_Temp.png)
+9. Matplotlib is used to construct scatter plots displaying the relationship between latitude and four properties of the weather: temperature, humidity, wind speed, and cloudiness.
 
-10. To further quantify these relationships, the `linregress` function is imported from `scipy.stats` to perform linear regression analysis on the data. Regression lines and equations are added to the plots using Matplotlib. For these analyses, the data is divided into latitudinal coordinates that are within the Northern or Southern hemispheres.
+![Temp vs. latitude](/WeatherPy/Fig1_Lat_v_Temp.png)
+
+12. To further quantify these relationships, the `linregress` function is imported from `scipy.stats` to perform linear regression analysis on the data. Regression lines and equations are added to the plots using Matplotlib. For these analyses, the data is divided into latitudinal coordinates that are within the Northern or Southern hemispheres.
 
 ![Temp vs. latitude](/WeatherPy/Fig5_NH_Lat_v_Temp.png)
 ![Temp vs. latitude](/WeatherPy/Fig6_SH_Lat_v_Temp.png)

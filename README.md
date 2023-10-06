@@ -40,7 +40,8 @@ In the first part of this analysis, weather data retrieved from the OpenWeather 
 9. Matplotlib is used to construct scatter plots displaying the relationship between latitude and four properties of the weather: temperature, humidity, wind speed, and cloudiness. ![Temp vs. latitude](/WeatherPy/Fig1_Lat_v_Temp.png)
 
 10. To further quantify these relationships, the `linregress` function is imported from `scipy.stats` to perform linear regression analysis on the data. Regression lines and equations are added to the plots using Matplotlib. For these analyses, the data is divided into latitudinal coordinates that are within the Northern or Southern hemispheres.
-![Temp vs. latitude](/WeatherPy/Fig5_NH_Lat_v_Temp.png) ![Temp vs. latitude](/WeatherPy/Fig6_SH_Lat_v_Temp.png)
+![Temp vs. latitude](/WeatherPy/Fig5_NH_Lat_v_Temp.png)
+![Temp vs. latitude](/WeatherPy/Fig6_SH_Lat_v_Temp.png)
 
 ## Part II: VacationPy
 Perhaps more interesting than the actual weather information are the actual decisions one can make with that information. In Part II, the weather data acquired from WeatherPy is used to determine the top several ideal cities matching the weather preferences of a would-be vacationer and searches for nearby lodging within those cities. 

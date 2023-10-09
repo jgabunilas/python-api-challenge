@@ -65,7 +65,7 @@ Perhaps more interesting than the actual weather information are the actual deci
 
 5. Using the `itterows()` function, the top cities dataframe is iterated over to collect the latitude and longitude coordinates for each city. These are then passed as parameters into requests to the Google Place API. Additional parameters specify that the search is looking for lodging within 5000 meters of the city location. 
 
-6. The query returns a JSON object containing information about lodging facilities meeting teh parameters, one lodging per city. The object is parsed for the name of the lodging, which is then added to the "Hotel Name" column of the dataframe.
+6. The query returns a JSON object containing information about lodging facilities meeting the parameters, one lodging per city. The object is parsed for the name of the lodging, which is then added to the "Hotel Name" column of the dataframe.
 
 7. Finally, `gmaps` is used to add a marker layer to the humidity heatmap created in step (2). The markers indicate the locations of the top cities matching the filtered weather preferences. When clicked, the hotel name, city, and country are displayed.
 ![markers](/images/hotel_markers.PNG)

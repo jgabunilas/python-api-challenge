@@ -7,6 +7,17 @@ This exercise analyzes various properties of local weather as a function of loca
 - Scipy - regression analysis
 - Requests - API requests
 
+## Project Summary 
+
+This exercise analyzes various properties of local weather as a function of location, seeking to understand whether temperature, cloudiness, windiness, or humidity for a given city is correlated with its latitudinal positioning. It makes extensive use of the following tools:
+
+- Pandas - data cleanup and organization
+- Matplotlib - data visualization
+- Scipy - regression analysis
+- Requests - API requests
+
+---
+
 ## Part I: WeatherPy
 In the first part of this analysis, weather data retrieved from the OpenWeather API is organized to determine whether a city's latitudinal position may be related to various properties of the weather. 
 
@@ -20,14 +31,16 @@ In the first part of this analysis, weather data retrieved from the OpenWeather 
 - The names of the cities
 - The latidude coordinate of the city
 - The longitude coordinate of the city
-- The maximum observed temperature for the city in (deg Fahrenheit)
+- The maximum observed temperature for the city (in deg Fahrenheit)
 - The relative humidity for that city (%)
 - The wind speed (mph)
 - The cloudiness (%)
 - The country that the city is located in
 - The date of data retrieval
 
-4. The [OpenWeather API](https://openweathermap.org/current) is queried for each city in the `cities` list using the `requests.get()`, which returns a JSON object containing weather information for eachy city. The name of each city is printed to the console as the queries proceed. If a query fails to return data for a given city and throws a **404** error, the query moves on to the next city in the list. ![Image](images/data_retrieval.PNG)
+4. The [OpenWeather API](https://openweathermap.org/current) is queried for each city in the `cities` list using the `requests.get()` method, which returns a JSON object containing weather information for each city. The name of each city is printed to the console as the queries proceed. If a query fails to return data for a given city and throws a **404** error, the query moves on to the next city in the list.
+ 
+![Image](images/data_retrieval.PNG)
 
 5. The lists that were created in (3) to store weather data are populated by parsing the weather JSON object for the pertinant data. One datapoint is added for each successful query. 
 
@@ -41,13 +54,13 @@ In the first part of this analysis, weather data retrieved from the OpenWeather 
 
 ![Temp vs. latitude](/WeatherPy/Fig1_Lat_v_Temp.png)
 
-12. To further quantify these relationships, the `linregress` function is imported from `scipy.stats` to perform linear regression analysis on the data. Regression lines and equations are added to the plots using Matplotlib. For these analyses, the data is divided into latitudinal coordinates that are within the Northern or Southern hemispheres.
+10. To further quantify these relationships, the `linregress` function is imported from `scipy.stats` to perform linear regression analysis on the data. Regression lines and equations are added to the plots using Matplotlib. For these analyses, the data is divided into latitudinal coordinates that are within the Northern or Southern hemispheres.
 
 ![Temp vs. latitude](/WeatherPy/Fig5_NH_Lat_v_Temp.png)
 ![Temp vs. latitude](/WeatherPy/Fig6_SH_Lat_v_Temp.png)
 
 ## Part II: VacationPy
-Perhaps more interesting than the actual weather information are the actual decisions one can make with that information. In Part II, the weather data acquired from WeatherPy is used to determine the top several ideal cities matching the weather preferences of a would-be vacationer and searches for nearby lodging within those cities. 
+Perhaps more interesting than the weather information are the actual decisions one can make with that data. In Part II, the weather data acquired from WeatherPy is used to determine the top  ideal cities matching the weather preferences of a would-be vacationer and searches for nearby lodging within those cities. 
 
 1. VacationPy begins by using Pandas to read in the CSV file containing cities and weather information from Part I and load the data into a dataframe (`cities_df`).
 
@@ -56,7 +69,7 @@ Perhaps more interesting than the actual weather information are the actual deci
 ![humidity heatmap](/images/humidity_heatmap.PNG) 
 
 4. The `cities_df` dataframe is filtered into a new dataframe called `ideal_weather` using Pandas to filter the cities by the weather preferences. For this exercise the following conditions were applied:
-- Maximum temperature of less than 68 def F
+- Maximum temperature between 68 and 80 degrees F
 - Wind speed of less than 8 mph
 - Cloudiness of less than 20%
 - Humidity of less than 50%
@@ -67,5 +80,6 @@ Perhaps more interesting than the actual weather information are the actual deci
 
 6. The query returns a JSON object containing information about lodging facilities meeting the parameters, one lodging per city. The object is parsed for the name of the lodging, which is then added to the "Hotel Name" column of the dataframe.
 
-7. Finally, `gmaps` is used to add a marker layer to the humidity heatmap created in step (2). The markers indicate the locations of the top cities matching the filtered weather preferences. When clicked, the hotel name, city, and country are displayed.
+7. Finally, `gmaps` is used to add a marker layer to the humidity heatmap created in step (2). The markers indicate the locations of the top cities matching the filtered weather preferences. When clicked, the hotel name, city, and country are displayed.  
+
 ![markers](/images/hotel_markers.PNG)
